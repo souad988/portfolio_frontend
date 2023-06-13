@@ -1,11 +1,13 @@
 import { useEffect, useState, useContext} from 'react';
 import {getData, createProjectApi} from './api/api'
 import { LanguageContext } from './contexts/languagesContext';
+import ThemeSwitcher from './components/themeSwitcher';
+import { ThemeContext } from './contexts/themesContext';
 
 function App() {
   const [data, setData] = useState([]);
   const {language, setLanguage,languageData} = useContext(LanguageContext)
-  
+  const {themeData} = useContext(ThemeContext)
   console.log(language,languageData)
 
   useEffect(() => {
@@ -17,9 +19,9 @@ function App() {
         console.log('data error', error);
       }
     };
-  
     fetchData();
   }, []);
+
   const createProject = async()=>{
     const data = await createProjectApi()
     console.log(data)
@@ -34,7 +36,8 @@ function App() {
   return (
 
     <div>
-      <button onClick={toggleLanguage}>{language}</button>
+      <ThemeSwitcher />
+      <button style={{backgroundColor: themeData.primaryColor}} onClick={toggleLanguage}>{language}</button>
       <button onClick={()=>createProject()}>Create project</button>
       {data? Object.values(data).map((item,index)=> (
         <p key={index}>{item}</p>

@@ -13,11 +13,8 @@ const LanguageProvider = ({children}) =>{
       console.log('data after ',data)
       setLanguageData(data)
     })
-    /*console.log('response',response.body)
-    const data = await response.json()
-    console.log('data after ',data)
-    setLanguageData(data)*/
   }
+  
   useEffect(() => {
     getLanguageObject('en')
   }, [])
