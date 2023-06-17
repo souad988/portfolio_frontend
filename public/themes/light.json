@@ -1,5 +1,7 @@
 {
     "primaryColor": "#C18AFC",
     "secondaryColor": "#4CF1D1",
-    "backgroundImage": "url(https://assets.website-files.com/5f6bc60…/6459709…_rf-gradient-short.webp),linear-gradient(#2c005b,#8315f9)"
+    "backgroundImage": "url(https://assets.website-files.com/5f6bc60…/6459709…_rf-gradient-short.webp),linear-gradient(#2c005b,#8315f9)",
+    "backgroundColor": "#C18AFC",
+    "backgroundColorSecondary": "#4CF1D1"
 }

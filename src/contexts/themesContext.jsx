@@ -9,7 +9,12 @@ const ThemeProvider = ({children}) =>{
   const [themeData, setThemeData] = useState()
 
   const getThemeObject = async(file)=>{
-    fetch(`themes/${file}.json`).then(res => res.json()).then(data => {
+    fetch(`themes/${file}.json`,{
+      method: 'GET',
+      headers: {
+        'Cache-Control':'public, max-age=3600' // Set caching behavior to bypass cache
+      }
+    }).then(res => res.json()).then(data => {
       console.log('data after ',data)
       setThemeData(data)
     })

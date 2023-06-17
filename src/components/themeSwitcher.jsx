@@ -1,15 +1,18 @@
 import {useContext} from 'react'
 import {ThemeContext} from '../contexts/themesContext'
+import CustomButton from './customButton'
 
 function ThemeSwitcher() {
   const {theme,setTheme} = useContext(ThemeContext) 
-  console.log('themeswitcher',theme)
 
   const toggleTheme = () => {
     setTheme(state => state == 'light'? 'dark' : 'light')
   }
   return (
-    <button onClick={toggleTheme}>{theme}</button>
+    <CustomButton 
+      title= {theme}
+      onClick= {toggleTheme}
+    />
   )
 }
 
