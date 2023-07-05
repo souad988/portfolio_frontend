@@ -1,0 +1,1 @@
+//transition: box-shadow 0.4s ease-out;
