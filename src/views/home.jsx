@@ -1,16 +1,17 @@
-import { useEffect, useState, useContext} from 'react';
+import { useEffect, useState } from 'react';
 import {getData, createProjectApi} from '../api/api'
-import { LanguageContext } from '../contexts/languagesContext';
 import ThemeSwitcher from '../components/themeSwitcher';
 import LanguageSwitcher from '../components/languageSwitcher';
 import CustomButton from '../components/customButton';
-import { ThemeContext } from '../contexts/themesContext';
+import { useSelector} from 'react-redux'
+
+
 function Home() {
     const [data, setData] = useState([]);
-    const {language, languageData} = useContext(LanguageContext)
-    const {themeData} = useContext(ThemeContext)
-    console.log(language,languageData)
-  
+    const {theme , themeId} = useSelector(state => state.theme)
+    const {language, languageId} = useSelector(state => state.language)
+    console.log('home', theme, language)
+
     useEffect(() => {
       const fetchData = async () => {
         try {
@@ -29,7 +30,7 @@ function Home() {
       setData(data)
     }
   
-    if(!languageData || !themeData){
+    if(!language || !theme){
       return ('loading')
     }
     return (
@@ -41,7 +42,7 @@ function Home() {
         <CustomButton title={'Create project'} onClick={createProject} />
         {data? Object.entries(data).map(([key,value]) => (
           <div key={`${key}-container`}> 
-            <p key={key}>{languageData[key]}</p>
+            <p key={key}>{language[key]}</p>
             <h3 key={`${key}-title`}>{value}</h3>
           </div> 
         )): 'no values '}

@@ -1,21 +1,13 @@
-import { useContext } from 'react';
 import {Link }from 'react-router-dom'
 import { HashLink as HashLink } from 'react-router-hash-link';
 import useCustomStyles from '../utils/customStyle';
 import {styles} from '../styles/components/header'
-import { ThemeContext } from "../contexts/themesContext"
+import { useSelector } from 'react-redux'
 
 function Header() {
-  const {themeData} = useContext(ThemeContext)
-  //let classes = 'loading'
-  const classes = useCustomStyles(styles(themeData));
+  const {theme} = useSelector(state => state.theme)
+  const classes = useCustomStyles(styles(theme));
  
-  
-  
-  //const classes = useStyles()
- // if(classes == 'loading'){
-   // return (<h1>loading</h1>)
-  //}
   return (
     <div className={classes.container} >
       <Link to='/blog'  className={classes.link} >Blog</Link>

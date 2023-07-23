@@ -1,16 +1,18 @@
-import {useContext} from 'react'
-import { LanguageContext } from '../contexts/languagesContext'
 import CustomButton from './customButton'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchLanguage } from '../store/reducers/languageReducer'
 
 function LanguageSwitcher() {
-  const {language, setLanguage} = useContext(LanguageContext) 
+  
+  const dispatch = useDispatch()
+  const {languageId} = useSelector(state => state.language)
 
   const toggleLanguage= () => {
-    setLanguage(state => state == 'en'? 'fr' : 'en')
+    dispatch(fetchLanguage(languageId == 'en'? 'fr' : 'en'))
   }
   return (
     <CustomButton 
-      title= {language}
+      title= {languageId}
       onClick= {toggleLanguage}
     />
   )

@@ -1,16 +1,18 @@
-import {useContext} from 'react'
-import {ThemeContext} from '../contexts/themesContext'
 import CustomButton from './customButton'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchTheme } from '../store/reducers/themeReducer'
 
 function ThemeSwitcher() {
-  const {theme,setTheme} = useContext(ThemeContext) 
+  
+  const dispatch = useDispatch()
+  const {themeId} = useSelector(state => state.theme)
 
   const toggleTheme = () => {
-    setTheme(state => state == 'light'? 'dark' : 'light')
+    dispatch(fetchTheme(themeId == 'light'? 'dark' : 'light'))
   }
   return (
     <CustomButton 
-      title= {theme}
+      title= {themeId}
       onClick= {toggleTheme}
     />
   )

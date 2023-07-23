@@ -1,11 +1,11 @@
-import { useContext } from "react"
-import { ThemeContext } from "../contexts/themesContext"
+import { useSelector } from "react-redux"
+
 function CustomButton(props) {
-  const {themeData} = useContext(ThemeContext) 
+  const {theme} = useSelector(state => state.theme) 
   // 
   const {title, onClick}  = {...props}
-  if(themeData){
-    return (<button style={{backgroundColor: themeData.primaryColor, color: themeData.secondaryColor}} onClick={onClick}>{title}</button>)
+  if(theme){
+    return (<button style={{backgroundColor: theme.primaryColor, color: theme.secondaryColor}} onClick={onClick}>{title}</button>)
   }
   return (
     <button  onClick={onClick}>{title}</button>
