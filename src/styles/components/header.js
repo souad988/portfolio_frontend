@@ -3,14 +3,15 @@ export const styles = (theme) => ({
       color: theme.secondaryColor,
       fontWeight: 'bold',
       '& :active': {
-        color: theme.primaryColor
+        color: 'white',
+        fontWeight: 'bold',
       }
     },
     container: {
         backgroundColor: theme.primaryColor,
         display: 'flex',
         justifyContent: 'space between',
-        padding: '3rem 2rem',
+        padding: '2rem',
         width: '100%'
     }
   })
