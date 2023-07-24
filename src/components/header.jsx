@@ -11,7 +11,7 @@ function Header() {
   return (
     <div className={classes.container} >
       <Link to='/blog'  className={classes.link} >Blog</Link>
-      <Link to='/' className={classes.link} >Portfolio</Link>
+      <Link to='/home' className={classes.link} >Portfolio</Link>
       <HashLink to='/home#Contactme' className={classes.link} >Contact</HashLink>
       <HashLink to='/home#projects' className={classes.link} >Projects</HashLink>
     </div>
