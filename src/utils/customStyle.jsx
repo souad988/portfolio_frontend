@@ -1,19 +1,21 @@
 import { css } from '@emotion/css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const useCustomStyles = (styles) => {
+const useCustomStyles = (styles, themeData) => {
   const [generatedClasses, setGeneratedClasses] = useState(null);
 
-  if (!generatedClasses) {
-    const evaluatedStyles = typeof styles === 'function' ? styles() : styles;
-    const generated = {};
+  useEffect(() => {
+    if (!generatedClasses) {
+      const evaluatedStyles = typeof styles === 'function' ? styles(themeData) : styles;
+      const generated = {};
 
-    for (const key in evaluatedStyles) {
-      generated[key] = css(evaluatedStyles[key]);
+      for (const key in evaluatedStyles) {
+        generated[key] = css(evaluatedStyles[key]);
+      }
+
+      setGeneratedClasses(generated);
     }
-
-    setGeneratedClasses(generated);
-  }
+  }, [styles, themeData, generatedClasses]);
 
   return generatedClasses || {};
 };

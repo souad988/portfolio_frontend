@@ -2,18 +2,41 @@ import {Link }from 'react-router-dom'
 import { HashLink as HashLink } from 'react-router-hash-link';
 import useCustomStyles from '../utils/customStyle';
 import {styles} from '../styles/components/header'
+import {generalStyles} from '../styles/index'
 import { useSelector } from 'react-redux'
+import ThemeSwitcher from './themeSwitcher';
+import LanguageSwitcher from './languageSwitcher';
+import semlogo from '../assets/semlogo.png'
+import clsx from 'clsx'
 
 function Header() {
   const {theme} = useSelector(state => state.theme)
   const classes = useCustomStyles(styles(theme));
+  const generalClasses = useCustomStyles(generalStyles(theme))
  
   return (
     <div className={classes.container} >
-      <Link to='/blog'  className={classes.link} >Blog</Link>
-      <Link to='/home' className={classes.link} >Portfolio</Link>
-      <HashLink to='/home#Contactme' className={classes.link} >Contact</HashLink>
-      <HashLink to='/home#projects' className={classes.link} >Projects</HashLink>
+      <img src={semlogo} alt='logo' className={classes.logo} />
+      <div className={generalClasses.flex}>
+      <ul className={clsx(generalClasses.flex, classes.menu)}>
+        <li>
+          <Link to='/blog'  className={classes.link} >Blog</Link>
+        </li>
+        <li>
+          <Link to='/' className={classes.link} >Portfolio</Link>
+        </li>
+        <li>
+          <HashLink to='/home#Contactme' className={classes.link} >Contact</HashLink>
+        </li>
+        <li>
+          <HashLink to='/home#projects' className={classes.link} >Projects</HashLink>
+        </li>
+      </ul>  
+      <div>
+        <ThemeSwitcher />
+        <LanguageSwitcher />
+      </div>
+      </div>
     </div>
   )
 }

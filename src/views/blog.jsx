@@ -1,17 +1,12 @@
 import useCustomStyles from '../utils/customStyle';
 import {styles} from '../styles/views/blog'
 import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-  
 
 function Blog() {
- 
-  const {theme, isLoading} = useSelector(state=> state.theme)
-  const [classes, setClasses] = useState(useCustomStyles(styles(theme)))
-  useEffect(() => {
-    
-  }, [isLoading])
   
+  const {theme, isLoading} = useSelector(state=> state.theme)
+  let classes= useCustomStyles(styles(theme))
+
   console.log('theme from blog', theme, isLoading)
   
   if(isLoading){

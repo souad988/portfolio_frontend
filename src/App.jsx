@@ -24,12 +24,12 @@ function App() {
       
         <Route
           exact={true}
-          path="/home"
+          path="/"
           element={<Home />}
         />
         <Route
           exact={true}
-          path="/"
+          path="/blog"
           element={<Blog />}
         />
    
