@@ -1,6 +1,7 @@
 import CustomButton from './customButton'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchTheme } from '../store/reducers/themeReducer'
+import HeaderButton from './headerButton'
 
 function ThemeSwitcher() {
   
@@ -11,7 +12,7 @@ function ThemeSwitcher() {
     dispatch(fetchTheme(themeId == 'light'? 'dark' : 'light'))
   }
   return (
-    <CustomButton 
+    <HeaderButton
       title= {themeId}
       onClick= {toggleTheme}
     />

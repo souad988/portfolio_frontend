@@ -10,8 +10,8 @@ import {fetchTheme} from './store/reducers/themeReducer'
 
 function App() {
   const dispatch = useDispatch()
+
   useEffect(() => {
-    
     dispatch(fetchTheme('light'))
   }, [])
   

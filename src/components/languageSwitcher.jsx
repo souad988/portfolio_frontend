@@ -1,6 +1,7 @@
 import CustomButton from './customButton'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchLanguage } from '../store/reducers/languageReducer'
+import HeaderButton from './headerButton'
 
 function LanguageSwitcher() {
   
@@ -11,7 +12,7 @@ function LanguageSwitcher() {
     dispatch(fetchLanguage(languageId == 'en'? 'fr' : 'en'))
   }
   return (
-    <CustomButton 
+    <HeaderButton 
       title= {languageId}
       onClick= {toggleLanguage}
     />
