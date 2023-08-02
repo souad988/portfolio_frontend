@@ -1,6 +1,6 @@
 export const styles = (theme) => ({
     primaryButton: {
-      backgroundColor: theme.backgroundColorSecondary,
+      backgroundColor: theme.primaryColor,
       borderRadius: 30,
       color: 'white',
       '&:hover': {

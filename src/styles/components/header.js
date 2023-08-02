@@ -14,8 +14,7 @@ export const styles = (theme) => ({
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: '1rem',
-        width: '100%'
+        padding: '1rem 2rem ',
     },
     logo: {
       width: '100px',
