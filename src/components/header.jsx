@@ -8,6 +8,7 @@ import ThemeSwitcher from './themeSwitcher';
 import LanguageSwitcher from './languageSwitcher';
 import semlogo from '../assets/semlogo.png'
 import clsx from 'clsx'
+import Logo from './logo';
 
 function Header() {
   const {theme} = useSelector(state => state.theme)
@@ -16,7 +17,7 @@ function Header() {
  
   return (
     <div className={classes.container} >
-      <img src={semlogo} alt='logo' className={classes.logo} />
+      <Logo />
       <div className={generalClasses.flex}>
       <ul className={clsx(generalClasses.flex, classes.menu)}>
         <li>
@@ -26,6 +27,7 @@ function Header() {
           <Link to='/' className={classes.link} >Portfolio</Link>
         </li>
         <li>
+
           <HashLink to='/home#Contactme' className={classes.link} >Contact</HashLink>
         </li>
         <li>
