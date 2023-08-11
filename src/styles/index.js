@@ -5,5 +5,11 @@ export const generalStyles = (theme) => ({
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center'
+    },
+    flexColumn: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'center'
     }
   })
