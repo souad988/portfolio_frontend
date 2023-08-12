@@ -1,12 +1,11 @@
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import LanguageProvider from './contexts/languagesContext.jsx'
+import { Provider } from "react-redux";
+import store from './store/storeConfiguration.js'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  
-    <LanguageProvider >
-      <App />
-    </LanguageProvider>
-  
+    <Provider store={store}>
+        <App />
+    </Provider>
 )

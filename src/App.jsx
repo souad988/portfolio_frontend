@@ -1,45 +1,40 @@
-import { useEffect, useState, useContext} from 'react';
-import {getData, createProjectApi} from './api/api'
-import { LanguageContext } from './contexts/languagesContext';
+import { useEffect } from 'react';
+import { BrowserRouter,Routes, Route} from 'react-router-dom';
+import Home from './views/home'
+import Blog from './views/blog';
+import Header from './components/header'
+import { useDispatch, useSelector} from 'react-redux';
+
+import {fetchTheme} from './store/reducers/themeReducer'
+
 
 function App() {
-  const [data, setData] = useState([]);
-  const {language, setLanguage,languageData} = useContext(LanguageContext)
-  
-  console.log(language,languageData)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const apiData = await getData();
-        setData(apiData);
-      } catch (error) {
-        console.log('data error', error);
-      }
-    };
+    dispatch(fetchTheme('light'))
+  }, [])
   
-    fetchData();
-  }, []);
-  const createProject = async()=>{
-    const data = await createProjectApi()
-    console.log(data)
-    setData(data)
-  }
-
-  const toggleLanguage = ()=>{
-    setLanguage(state=>{
-      return state == 'en' ? 'fr' : 'en'
-    })
-  }
+  const {theme} = useSelector(state => state.theme) 
+  console.log('app.jsx theme',theme)
   return (
-
-    <div>
-      <button onClick={toggleLanguage}>{language}</button>
-      <button onClick={()=>createProject()}>Create project</button>
-      {data? Object.values(data).map((item,index)=> (
-        <p key={index}>{item}</p>
-      )): 'no values '}
-    </div>
+  <BrowserRouter>
+   <Header />
+   <Routes>
+      
+        <Route
+          exact={true}
+          path="/"
+          element={<Home />}
+        />
+        <Route
+          exact={true}
+          path="/blog"
+          element={<Blog />}
+        />
+   
+   </Routes>
+   </BrowserRouter>
   );
 }
 

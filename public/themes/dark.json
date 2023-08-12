@@ -1,0 +1,11 @@
+{
+    "primaryColor": "#4CF1D1",
+    "secondaryColor": "#C18AFC",
+    "backgroundImage": "url(https://assets.website-files.com/5f6bc60…/6459709…_rf-gradient-short.webp),linear-gradient(#2c005b,#8315f9)",
+    "backgroundColor": "#121212",
+    "primaryButtonHoverColor": "#083739",
+    "backgroundColorSecondary": "#4CF1D1",
+    "primaryFontColor": "#FFFFFF",
+    "secondaryFontColor": "#00CDA7"
+
+}
