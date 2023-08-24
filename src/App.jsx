@@ -6,6 +6,7 @@ import Header from './components/header'
 import { useDispatch, useSelector} from 'react-redux';
 
 import {fetchTheme} from './store/reducers/themeReducer'
+import ProjectDetails from './components/projectDetails';
 
 
 function App() {
@@ -32,6 +33,11 @@ function App() {
           path="/blog"
           element={<Blog />}
         />
+
+        <Route 
+          path='/projectDetails'
+          element={<ProjectDetails />}
+        />  
    
    </Routes>
    </BrowserRouter>

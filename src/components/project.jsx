@@ -1,4 +1,5 @@
 import React,{useEffect} from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import useCustomStyles from '../utils/customStyle';
 import {styles} from '../styles/components/project'
 import {useDispatch ,useSelector } from 'react-redux'
@@ -15,7 +16,10 @@ import {
   Typography,
 } from '@mui/material';
 
+import CustomButton from './customButton';
+
 function Project() {
+  const history = useNavigate()
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchProjects())
@@ -47,17 +51,8 @@ function Project() {
 
     </CardMedia>
     <CardActionArea >
-      <CardContent
-        
-      >
-        <Fab
-         
-          size="small"
-          aria-label="save button"
-        
-        >
-          "save"
-        </Fab>
+      <CardContent >
+        <CustomButton title={'See Project'} onClick={()=> history('/projectDetails')} />
        
         <Typography
           variant="h5"

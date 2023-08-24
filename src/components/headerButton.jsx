@@ -9,6 +9,7 @@ function HeaderButton(props) {
     // 
     const {title, onClick}  = {...props}
     if(theme){
+      console.log('headerButton theme loaded')
       return (<button className={classes.primaryButton} onClick={onClick}>{title}</button>)
     }
     return (
